@@ -1,0 +1,165 @@
+/* Standard custom styles and animations for standalone release */
+:root {
+  --play-green: #34A853;
+  --play-green-hover: #2d8f47;
+  --play-green-light: #e8f5e9;
+  --play-green-dark: #81C995;
+  --play-dark-bg: #121212;
+  --play-dark-surface: #1e1e1e;
+  --play-dark-card: #2d2d2d;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbars for screenshot slider but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Scrollbar for Desktop Slider */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 99px;
+}
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--play-green);
+}
+
+/* Ripple button effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
+}
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Phone Mockup Screen Styling */
+.phone-mockup {
+  position: relative;
+  width: 260px;
+  height: 520px;
+  border-radius: 36px;
+  border: 10px solid #222;
+  background: #000;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: var(--transition-smooth);
+}
+.dark .phone-mockup {
+  border-color: #333;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.phone-mockup:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+.phone-camera {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 12px;
+  background: #222;
+  border-radius: 99px;
+  z-index: 50;
+}
+.phone-status-bar {
+  height: 24px;
+  background: #34A853;
+  color: white;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 500;
+  z-index: 40;
+  position: relative;
+}
+.phone-screen {
+  height: calc(100% - 24px);
+  background: #f8f9fa;
+  overflow-y: auto;
+  position: relative;
+  font-size: 11px;
+}
+.dark .phone-screen {
+  background: #121212;
+  color: #e3e3e3;
+}
+
+/* Custom Linear Loading Bar */
+.google-loader {
+  height: 4px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #e8f5e9;
+  z-index: 9999;
+  overflow: hidden;
+}
+.google-loader-bar {
+  width: 100%;
+  height: 100%;
+  background-color: var(--play-green);
+  animation: google-loading 2s infinite ease-in-out;
+  transform-origin: left;
+}
+@keyframes google-loading {
+  0% { transform: scaleX(0) translateX(0); }
+  50% { transform: scaleX(0.4) translateX(100%); }
+  100% { transform: scaleX(0) translateX(250%); }
+}
+
+/* Smooth Accordion FAQ transition */
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+}
+
+/* Floating Action Button (FAB) */
+.fab-btn {
+  box-shadow: 0 4px 15px rgba(52, 168, 83, 0.4);
+}
+
+/* Code Viewer styles */
+.code-tab-active {
+  border-bottom: 2px solid var(--play-green);
+  color: var(--play-green);
+}
