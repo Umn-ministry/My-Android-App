@@ -1,3 +1,6 @@
+<script>
+
+
 document.addEventListener('DOMContentLoaded', () => {
   // --- Initialize Loader ---
   const loader = document.getElementById('google-loader');
@@ -356,3 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateStatusBarTime, 30000);
   updateStatusBarTime(); // run initially
 });
+</script>
+
+
+  
